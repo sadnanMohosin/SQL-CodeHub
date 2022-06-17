@@ -1,6 +1,6 @@
 # SQL-CodeHub
 
-## *Total number of signup in Every week*
+## *1.Total number of signup in Every week*
 ```sql
 SELECT
   DATE_FORMAT(
