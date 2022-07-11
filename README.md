@@ -8,7 +8,7 @@ SELECT
       TO_DAYS(build_date) - MOD(TO_DAYS(build_date) -2, 7)
     ),
     '%M %D'
-  ) AS week_created,
+  ) AS week_registered,
   COUNT(DISTINCT user_id) AS total_registered,
   COUNT(info_upload_date) AS info_uploaded
 FROM
