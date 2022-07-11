@@ -5,26 +5,26 @@
 SELECT
   DATE_FORMAT(
     FROM_DAYS(
-      TO_DAYS(created_date) - MOD(TO_DAYS(created_date) -2, 7)
+      TO_DAYS(build_date) - MOD(TO_DAYS(build_date) -2, 7)
     ),
     '%M %D'
-  ) AS week_signup,
-  COUNT(DISTINCT user_id) AS total_signup,
-  COUNT(resume_upload_date) AS resume_uploaded
+  ) AS week_created,
+  COUNT(DISTINCT user_id) AS total_registered,
+  COUNT(info_upload_date) AS info_uploaded
 FROM
-  turing_node.developer_detail
+  company_node.dev_detail
 GROUP BY
   FROM_DAYS(
-    TO_DAYS(created_date) - MOD(TO_DAYS(created_date) -2, 7)
+    TO_DAYS(build_date) - MOD(TO_DAYS(build_date) -2, 7)
   )
 ORDER BY
   FROM_DAYS(
-    TO_DAYS(created_date) - MOD(TO_DAYS(created_date) -2, 7)
+    TO_DAYS(build_date) - MOD(TO_DAYS(build_date) -2, 7)
   ) DESC;
  ```
 > output:
 
- |id  | week_signup  | total_signup  | resume_uploaded |
+ |id  | week_registered  | total_registered  | info_uploaded |
  |----|:-----:|:-----:|:-----:|
  | 1	|June 13th |	16484	| 7423 |
 |2	|June 6th	| 25701|	11356 |
